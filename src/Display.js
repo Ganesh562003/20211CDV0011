@@ -5,7 +5,7 @@ function Display(){
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-              const response=await axios.get("http://20.244.56.144/test/compaines/:companyname/categories/:categoryname/products?top=n&minPrice=p&maxPrice=q");
+              const response=await axios.get("http://localhost:3006/user");
 
               setData(response.data);
     
@@ -24,16 +24,33 @@ function Display(){
         <div >
         <h1 >Fetched data is</h1>
         <ul>
-          {data.map((datas)=>(
+          
             <div>
+              <table className="border-fixed border-amber-300 border border-slate-500 ..." >
+                <thead>
+                <tr><th className="border border-slate-600 ...">ProductNames</th>
+                <th className="border border-slate-600 ...">ProductPrice</th>
+                <th className="border border-slate-600 ...">Productrating</th>
+                <th className="border border-slate-600 ...">Productavilability</th>
+                </tr>
+                </thead>
+                <tbody>
+                {data.map((datas)=>(
+                <tr>
+                <td className="border border-slate-700 ..." key={datas.productName}> {datas.productName}</td>
+                  <td className="border border-slate-700 ..." key={datas.productName}>{datas.price}</td>
+                  <td className="border border-slate-700 ..." key={datas.productName}> {datas.rating}</td>
+                  <td className="border border-slate-700 ..." key={datas.productName}> {datas.availability}</td>
+                </tr>) )}
+                </tbody>
+              </table>
 
 
-            <li  key={datas.id}>{datas.productName} </li>
-            <li  key={datas.id}>{datas.price}</li>
-            
-            </div>
            
-          ))}
+          
+            </div> 
+           
+         
          
         </ul>
         </div>

@@ -5,7 +5,7 @@ function Read(){
     useEffect(()=>{
         const fetchData=async()=>{
             try{
-              const response=await axios.get("http://20.244.56.144/test/compaines/:companyname/categories/:categoryname/products?top=n&minPrice=p&maxPrice=q");
+              const response=await axios.get("http://localhost:3006/user");
 
               setData(response.data);
     
@@ -28,8 +28,9 @@ function Read(){
             <div>
 
 
-            <li  key={datas.id}>{datas.productName} </li>
-            <li  key={datas.id}>{datas.price}</li>
+            <li  key={datas.productName}>{datas.price} </li>
+            <li  key={datas.productName}>{datas.rating}</li>
+            <li  key={datas.productName}>{datas.availability}</li>
             
             </div>
            
