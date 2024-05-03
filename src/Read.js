@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 function Read(){
   const [data,setData]=useState([])
+  const {productName}=useParams();
     useEffect(()=>{
         const fetchData=async()=>{
             try{
